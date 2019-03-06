@@ -1,0 +1,44 @@
+using System;
+
+namespace ConsoleApp_HackerRank
+{
+    // Warm-up Challenges
+    // Jumping on the Clouds
+    class Program
+    {
+        static int jumpingOnClouds(int[] c)
+        {
+            int stepCount = 0;
+            int arrayLength = c.Length;
+            for (int indis = 0; indis < arrayLength;)
+            {
+                if (indis == arrayLength - 1)
+                    break;
+
+                // Bir sonraki uzun adım 0 ise ve sınır dışında değilse uzun adım at...
+                if (indis + 2 <= arrayLength - 1 && c[indis + 2] == 0)
+                {
+                    indis += 2;
+                    stepCount++;
+                }
+                else
+                {
+                    indis++;
+                    stepCount++;
+                }
+            }
+            return stepCount++;
+        }
+
+        static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
+            int result = jumpingOnClouds(c);
+            Console.WriteLine(result);
+            Console.ReadLine();
+        }
+    }
+}
+
+
